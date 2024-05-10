@@ -36,11 +36,12 @@ function checkGuess() {
     setGameOver();
   } else if (guessCount === 10) {
     lastResult.textContent = "!!!GAME OVER!!!";
+    lastResult.style.backgroundColor = "red";
     lowOrHi.textContent = "";
     setGameOver();
   } else {
     lastResult.textContent = "Wrong!";
-    lastResult.style.backgroundColor = "red";
+    lastResult.style.backgroundColor = "#d55";
     if (userGuess < randomNumber) {
       lowOrHi.textContent = "Last guess was too low!";
     } else if (userGuess > randomNumber) {
@@ -60,6 +61,7 @@ function setGameOver() {
   resetButton.textContent = "Start new game";
   document.body.append(resetButton);
   resetButton.addEventListener("click", resetGame);
+  resetButton.focus();
 }
 
 function resetGame() {
